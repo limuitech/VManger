@@ -11,6 +11,9 @@
     <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="static/css/font.css">
 	<link rel="stylesheet" href="static/css/xadmin.css">
+     {% block css %}
+
+    {% endblock %}
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="static/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="static/js/xadmin.js"></script>
@@ -44,42 +47,44 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe6b8;</i>
-                    <cite>会员管理</cite>
+                    <cite>项目管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a _href="member-list.html">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员列表</cite>
+                            <cite>项目列表</cite>
 
                         </a>
                     </li >
                     <li>
                         <a _href="member-del.html">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员删除</cite>
-
+                            <cite>项目添加</cite>
                         </a>
                     </li>
-                    <li>
+
+                </ul>
+            </li>
+             <li>
                         <a href="javascript:;">
                             <i class="iconfont">&#xe70b;</i>
-                            <cite>会员管理</cite>
+                            <cite>信息收集</cite>
                             <i class="iconfont nav_right">&#xe697;</i>
                         </a>
                         <ul class="sub-menu">
                             <li>
                                 <a _href="xxx.html">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员列表</cite>
+                                    <cite>端口信息</cite>
 
                                 </a>
                             </li >
                             <li>
                                 <a _href="xx.html">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员删除</cite>
+                                    <cite>cms识别</cite>
 
                                 </a>
                             </li>
@@ -93,12 +98,10 @@
 
                         </ul>
                     </li>
-                </ul>
-            </li>
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>订单管理</cite>
+                    <cite>模块管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
@@ -113,14 +116,22 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>分类管理</cite>
+                    <cite>渗透测试报告</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
                         <a _href="cate.html">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>多级分类</cite>
+                            <cite>报告列表</cite>
+                        </a>
+                    </li >
+                </ul>
+                 <ul class="sub-menu">
+                    <li>
+                        <a _href="cate.html">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>模板修改</cite>
                         </a>
                     </li >
                 </ul>
@@ -283,5 +294,8 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
+
+{% block js %}
+{% endblock %}
 </body>
 </html>

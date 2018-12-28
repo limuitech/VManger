@@ -1,0 +1,221 @@
+{% extends "layout.html" %}
+{% block webinfo %}
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+
+        <a>
+          <cite>报告编写</cite></a>
+      </span>
+        <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+           href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+
+
+        <form class="layui-form form-inline">
+
+
+            <div class="layui-form-item">
+                <div class="layui-col-md3">
+                    <label for="L_email" class="layui-form-label">
+                        <span class="x-red">*</span>项目名称
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-col-md3">
+                    <label for="L_username" class="layui-form-label">
+                        <span class="x-red">*</span>客户方
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_username" name="username" required="" lay-verify="nikename"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-col-md3">
+                    <label for="L_pass" class="layui-form-label">
+                        <span class="x-red">*</span>实施方
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_pass" name="pass" required="" lay-verify="pass"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-col-md3">
+                    <label for="L_repass" class="layui-form-label">
+                        <span class="x-red">*</span>项目时间
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_repass" name="repass" required="" lay-verify="repass"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">http://124.2.3.2 高：5 中：1 低：0</h2>
+                    <div class="layui-colla-content">
+
+
+                        <div style="padding: 20px; background-color: #F2F2F2;">
+                            <div class="layui-row layui-col-space15">
+                                <div class="layui-col-md6">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">选择漏洞</div>
+                                        <div class="layui-card-body">
+                                           <a class="layui-btn layui-btn-radius layui-btn-normal"
+                               onclick="x_admin_show('http://124.2.3.2','{{ url_for('Vulnerabilityadd') }}')" href="javascript:;">信息泄露</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-warm">XSS</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-danger">SQL注入</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-col-md6">
+                                    <div class="layui-card">
+                                        <div class="layui-card-header">编写完成</div>
+                                        <div class="layui-card-body">
+                                           <a class="layui-btn layui-btn-radius layui-btn-normal"
+                               onclick="x_admin_show('编辑','xxx.html')" href="javascript:;">信息泄露</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-warm">XSS</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-danger">SQL注入</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <p>
+
+
+
+
+                        </p>
+
+
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">http://124.2.3.3 高：5 中：1 低：0</h2>
+                    <div class="layui-colla-content">
+
+
+                        <p>
+                            <a class="layui-btn layui-btn-radius layui-btn-primary">原始按钮</a>
+                            <a class="layui-btn layui-btn-radius">默认按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-normal">百搭按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-warm">暖色按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-danger">警告按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-disabled">禁用按钮</a>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">http://124.2.3.4 高：5 中：1 低：0</h2>
+                    <div class="layui-colla-content">
+
+
+                        <p>
+                            <a class="layui-btn layui-btn-radius layui-btn-primary">原始按钮</a>
+                            <a class="layui-btn layui-btn-radius">默认按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-normal">百搭按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-warm">暖色按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-danger">警告按钮</a>
+                            <a class="layui-btn layui-btn-radius layui-btn-disabled">禁用按钮</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">
+                    增加
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <script>
+
+
+        //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element', function () {
+            var element = layui.element;
+
+            //…
+        });
+
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#start' //指定元素
+            });
+
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#end' //指定元素
+            });
+        });
+
+        /*用户-停用*/
+        function member_stop(obj, id) {
+            layer.confirm('确认要停用吗？', function (index) {
+
+                if ($(obj).attr('title') == '启用') {
+
+                    //发异步把用户状态进行更改
+                    $(obj).attr('title', '停用')
+                    $(obj).find('i').html('&#xe62f;');
+
+                    $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
+                    layer.msg('已停用!', {icon: 5, time: 1000});
+
+                } else {
+                    $(obj).attr('title', '启用')
+                    $(obj).find('i').html('&#xe601;');
+
+                    $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
+                    layer.msg('已启用!', {icon: 5, time: 1000});
+                }
+
+            });
+        }
+
+        /*用户-删除*/
+        function member_del(obj, id) {
+            layer.confirm('确认要删除吗？', function (index) {
+                //发异步删除数据
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!', {icon: 1, time: 1000});
+            });
+        }
+
+
+        function delAll(argument) {
+
+            var data = tableCheck.getData();
+
+            layer.confirm('确认要删除吗？' + data, function (index) {
+                //捉到所有被选中的，发异步进行删除
+                layer.msg('删除成功', {icon: 1});
+                $(".layui-form-checked").not('.header').parents('tr').remove();
+            });
+        }
+    </script>
+
+{% endblock %}

@@ -2,9 +2,8 @@ from . import db
 
 
 class Project(db.Model):
-    __tablename__ = 'project'  ##注意这句，网上有些实例上并没有
-    ##必须设置主键
-    id = db.Column(db.Integer, primary_key=True)
+    __tablename__ = 'project'
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     projectName = db.Column(db.String(200))
     implementer = db.Column(db.String(100))
     customer = db.Column(db.String(100))
@@ -26,10 +25,24 @@ class Project(db.Model):
         self.startTime = startTime
 
     def __repr__(self):
-        return '<User %r>' % self.year
+        return '<Project %r>' % self.projectName
 
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
+class test(db.Model):
+    __tablename__ = 'test'  ##注意这句，网上有些实例上并没有
+    ##必须设置主键
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200))
+
+
+    def __init__(self,id, name,
+                 ):
+
+
+        self.name = name
+
+
+    def __repr__(self):
+        return '<test %r>' % self.name
+
 
 

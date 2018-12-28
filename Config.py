@@ -9,3 +9,15 @@ class ProductionConfig(Config):
     DBUSERNAME = 'scan'
     DBPASSWORD = 'scanlol66'
     DBNAME = 'xunfeng'
+
+
+class Vulnerability():
+    sql={{'title':'sql盲注',
+         'rank': '高',
+         'repair': '全局数据过滤，避免用户输入的危害数据传输到数据库后台。'
+         },
+         }
+    xss={'title':'sql注入',
+         'rank': '高',
+         'repair': '全局数据过滤，避免用户输入的危害数据传输到数据库后台。'
+         }

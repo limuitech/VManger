@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% import '_macros.html' as macros %}
 {% block webinfo %}
     <div class="x-nav">
       <span class="layui-breadcrumb">
@@ -54,13 +55,14 @@
             </tr>
             </thead>
             <tbody>
+            {% for pjt in project %}
             <tr>
                 <td>
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i
                             class="layui-icon">&#xe605;</i></div>
                 </td>
-                <td>北京黄鹤楼科技有限公司渗透测试项目</td>
-                <td>ms125222232</td>
+                <td>{{ pjt.projectName }}</td>
+                <td>{{ pjt.itemNumber }}</td>
                 <td>
 
                     <select name="quiz" type="height: 38px;">
@@ -79,30 +81,31 @@
                 <td>5</td>
                 <td>7</td>
 
-                <td><span class="layui-btn layui-btn-normal layui-btn-mini">已完成</span></td>
+               <td>
+                        {% if pjt.state == 0 %}
+                            <span class="layui-btn layui-btn-normal layui-btn-mini">已完成</span>
+                        {% else %}
+
+                            <span class="layui-btn layui-btn-danger layui-btn-mini">进行中</span>
+                        {% endif %}
+                    </td>
                 <td>导出</td>
                 <td class="td-manage">
-                    <a title="编辑" onclick="x_admin_show('编辑','xxx.html')" href="javascript:;">
-                        <i class="layui-icon"></i>
-                    </a>
+                     <a  href="{{ url_for('ExportWord',pid=pjt.id) }}">
+                            <i class="layui-icon"></i>
+                        </a>
 
                     <a title="删除项目" onclick="member_del(this,'要删除的id')" href="javascript:;">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
             </tr>
+            {% endfor %}
             </tbody>
         </table>
-        <div class="page">
-            <div>
-                <a class="prev" href="">&lt;&lt;</a>
-                <a class="num" href="">1</a>
-                <span class="current">2</span>
-                <a class="num" href="">3</a>
-                <a class="num" href="">489</a>
-                <a class="next" href="">&gt;&gt;</a>
-            </div>
-        </div>
+         {% if pagination %}
+            {{ macros.pagination_widget(pagination,'.Projectlist') }}
+        {% endif %}
 
     </div>
     <script>

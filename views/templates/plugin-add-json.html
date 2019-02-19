@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block js %}
+
+{% endblock %}
+{% block css %}
+
+{% endblock %}
+{% block webinfo %}
+    <div class="x-body">
+        <form class="layui-form">
+            <div class="layui-form-item">
+                <label for="projectName" class="layui-form-label">
+                    <span class="x-red"></span>项目名称
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="projectName" name="projectname" lay-verify="projectName"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label for="itemNumber" class="layui-form-label">
+                    <span class="x-red"></span>项目编号
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="itemNumber" name="projectnumber" autocomplete="off" lay-verify="itemNumber"
+                           class="layui-input" >
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">实施人</label>
+                <div class="layui-input-block">
+                    <select name="peoples" multiple>
+                        <option value="">请选择</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item layui-form-text">
+                <label for="target" class="layui-form-label">
+                    项目目标
+                </label>
+
+                <div class="layui-input-block">
+                    <textarea placeholder="IP：192.168.1.1,192.168.1.1/24,192.168.1.1-192.168.1.255" id="ips" name="ips" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_repass" class="layui-form-label">
+                </label>
+                <button class="layui-btn" lay-filter="add" lay-submit="">
+                    增加
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+
+        layui.use(['form', 'code'], function () {
+            var form = layui.form,
+                $ = layui.$;
+
+
+            //监听提交
+            form.on('submit(add)', function (data) {
+                console.log(data);
+
+               $.ajax({
+                    url: '{{ url_for('Pluginadd_json') }}',
+                    type: "POST",
+                    data: data.field,
+                    success: function (data) {
+                        layer.alert("增加成功", {icon: 6}, function () {
+                            // 获得frame索引
+                            var index = parent.layer.getFrameIndex(window.name);
+                            //关闭当前frame
+                            parent.layer.close(index);
+                        });
+                    }
+                });
+                return false;
+            });
+
+
+        })
+    </script>
+{% endblock %}

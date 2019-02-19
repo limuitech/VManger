@@ -23,7 +23,8 @@
                         <span class="x-red">*</span>项目名称
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                        <input type="text" id="projectName" value="{{ project.projectName }}" name="projectName"
+                               required="" lay-verify="projectName"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -32,16 +33,18 @@
                         <span class="x-red">*</span>客户方
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_username" name="username" required="" lay-verify="nikename"
+                        <input type="text" id="customer" value="{{ project.customer }}" name="customer" required=""
+                               lay-verify="customer"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-col-md3">
                     <label for="L_pass" class="layui-form-label">
-                        <span class="x-red">*</span>实施方
+                        <span class="x-red">*</span>实施人
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_pass" name="pass" required="" lay-verify="pass"
+                        <input type="text" id="implementerPerson" name="implementerPerson"
+                               value="{{ project.implementerPerson }}" required="" lay-verify="implementerPerson"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -50,7 +53,8 @@
                         <span class="x-red">*</span>项目时间
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_repass" name="repass" required="" lay-verify="repass"
+                        <input type="text" id="startTime" name="startTime" value="{{ project.startTime|timetmp }}"
+                               required="" lay-verify="startTime"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -59,21 +63,27 @@
             </div>
 
             <div class="layui-collapse">
+
+                {% for target in targets %}
                 <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">http://124.2.3.2 高：5 中：1 低：0</h2>
+                    <h2 class="layui-colla-title">{{ target.target }} 高：5 中：1 低：0</h2>
                     <div class="layui-colla-content">
-
-
                         <div style="padding: 20px; background-color: #F2F2F2;">
                             <div class="layui-row layui-col-space15">
                                 <div class="layui-col-md6">
                                     <div class="layui-card">
                                         <div class="layui-card-header">选择漏洞</div>
                                         <div class="layui-card-body">
-                                           <a class="layui-btn layui-btn-radius layui-btn-normal"
-                               onclick="x_admin_show('http://124.2.3.2','{{ url_for('Vulnerabilityadd') }}')" href="javascript:;">信息泄露</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-warm">XSS</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-danger">SQL注入</a>
+
+                                            {% for vclass in vulnerabilityClass %}
+
+
+
+                                            <a class="layui-btn"
+                                               onclick="x_admin_show('{{ target.target }}','{{ url_for('Vulnerabilityadd',pid=project.id,vclassid=vclass.id,tid=target.id) }}')"
+                                               href="javascript:;">{{ vclass.type }}</a>
+                                                {% endfor %}
+
                                         </div>
                                     </div>
                                 </div>
@@ -81,59 +91,21 @@
                                     <div class="layui-card">
                                         <div class="layui-card-header">编写完成</div>
                                         <div class="layui-card-body">
-                                           <a class="layui-btn layui-btn-radius layui-btn-normal"
-                               onclick="x_admin_show('编辑','xxx.html')" href="javascript:;">信息泄露</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-warm">XSS</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-danger">SQL注入</a>
+                                            <a class="layui-btn layui-btn-radius layui-btn-normal"
+                                               onclick="x_admin_show('编辑','xxx.html')" href="javascript:;">信息泄露</a>
+                                            <a class="layui-btn layui-btn-radius layui-btn-warm">XSS</a>
+                                            <a class="layui-btn layui-btn-radius layui-btn-danger">SQL注入</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                         <p>
-
-
-
-
                         </p>
-
-
                     </div>
                 </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">http://124.2.3.3 高：5 中：1 低：0</h2>
-                    <div class="layui-colla-content">
+                {% endfor %}
 
-
-                        <p>
-                            <a class="layui-btn layui-btn-radius layui-btn-primary">原始按钮</a>
-                            <a class="layui-btn layui-btn-radius">默认按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-normal">百搭按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-warm">暖色按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-danger">警告按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-disabled">禁用按钮</a>
-                        </p>
-
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">http://124.2.3.4 高：5 中：1 低：0</h2>
-                    <div class="layui-colla-content">
-
-
-                        <p>
-                            <a class="layui-btn layui-btn-radius layui-btn-primary">原始按钮</a>
-                            <a class="layui-btn layui-btn-radius">默认按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-normal">百搭按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-warm">暖色按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-danger">警告按钮</a>
-                            <a class="layui-btn layui-btn-radius layui-btn-disabled">禁用按钮</a>
-                        </p>
-
-                    </div>
-                </div>
             </div>
 
 

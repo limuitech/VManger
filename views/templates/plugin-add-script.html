@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block js %}
+{% endblock %}
+{% block css %}
+
+{% endblock %}
+{% block webinfo %}
+
+
+           <div class="layui-upload">
+  <button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
+  <button type="button" class="layui-btn" id="test9">开始上传</button>
+</div>
+
+    <script>
+    layui.use('upload', function(){
+  var $ = layui.jquery
+  ,upload = layui.upload;
+
+  //普通图片上传
+
+          upload.render({
+    elem: '#test8'
+    ,url: '/upload/'
+    ,auto: false
+    //,multiple: true
+              ,accept: 'file'
+    ,bindAction: '#test9'
+    ,done: function(res){
+      console.log(res)
+    }
+  });
+
+
+  });
+
+    </script>
+{% endblock %}

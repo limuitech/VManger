@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="sqlie.db" uuid="603ef5ee-a838-4186-9630-afe7366845a0">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/views/sqlie.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
     <data-source source="LOCAL" name="data.sqlite" uuid="e64c45e6-bfaf-4821-abfe-f98497d85e7c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
